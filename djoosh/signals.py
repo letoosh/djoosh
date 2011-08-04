@@ -13,6 +13,6 @@ def update_index_handler(search_model, sender, instance, created, **kwargs):
 
 def delete_handler(search_model, sender, instance, **kwargs):
     """ Delete a record in search index, used on pre_delete """
-    utils.delete(search_model, instance, created)
+    utils.delete(search_model, instance)
 
 
