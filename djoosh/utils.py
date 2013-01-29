@@ -24,7 +24,10 @@ def update_index(search_model, obj=None, created=True):
     for obj in objects:
         fields = {}
         for field in search_model.fields:
-            fields[field] = smart_unicode(getattr(obj, field, ''))
+            try:
+                fields[field] = smart_unicode(getattr(obj, field, ''))
+            except:
+                continue
         if created:
             try:
                 writer.update_document(**fields)
